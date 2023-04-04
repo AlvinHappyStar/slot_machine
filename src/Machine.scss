@@ -1,0 +1,189 @@
+h1 {
+	color: white;
+	font-family: liliput;
+	text-transform: uppercase;
+	font-size: 24px;
+}
+
+@mixin spin-btn {
+	width: 200px;
+	height: 70px;
+	background: #ff00b8;
+	border: 5px solid #fbd2ff;
+	font-size: 40px;
+	color: white;
+	font-family: liliput;
+	letter-spacing: 5px;
+	box-sizing: border-box;
+	padding: 5px;
+	border-radius: 25px;
+	outline: none;
+
+	&:hover {
+		background: #8e0067;
+		border-color: #c44cce;
+		cursor: pointer;
+	}
+
+	&:focus {
+		border-color: cyan;
+	}
+
+	&:disabled {
+		background: #827f81;
+		color: #dbdbdb;
+		border-color: #dbdbdb;
+		cursor: not-allowed;
+	}
+}
+
+.spin {
+	@include spin-btn;
+	box-shadow: 0px 3px 19px -4px rgba(0, 0, 0, 0.75);
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 800px;
+	height: 700px;
+	background: url("./assets/machine.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	// background-attachment: fixed;
+
+	.info {
+		// background: white;
+		font-family: liliput;
+		width: 300px;
+		color: #ffe12b;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		font-size: 40px;
+		margin-top:-65px;
+
+		// .prog {
+		// 	animation: pro 3s infinite;
+		// 	animation-timing-function: linear;
+		// }
+	
+		.win {
+			animation: rot 1s infinite;
+			animation-timing-function: linear;
+		}
+	
+		// @keyframes pro {
+		// 	0% {
+		// 		background-image: url("./assets/dot1.png");
+		// 	}
+
+		// 	100% {
+		// 		background-image: url("./assets/dot2.png");
+		// 	}
+		// }
+
+		@keyframes rot {
+			0% {
+				opacity: 1;
+			}
+
+			50% {
+				opacity: 0;
+			}
+	
+			100% {
+				visibility: 1;
+			}
+		}
+	}
+
+	.slots-cols {
+		display: grid;
+		flex-direction: row;
+		align-items: center;
+		align-content: center;
+		height: 70px;
+		width: 300px;
+		margin-top: -60px;
+		margin-left: 90px;
+		grid-template-columns: 30% 30% 30%;
+		grid-template-rows: auto;
+		box-sizing: border-box;
+		overflow-y: hidden;
+
+		.slot {
+			margin: auto;
+		}
+	}
+
+	.switcher {
+		width: 54px;
+		height: 100px;
+		background: url("./assets/spin.png");
+		margin-bottom: 100px;
+		border: none;
+
+
+		&:hover {
+			transform: scale(.8);
+			cursor: pointer;
+		}
+
+		&:active {
+			height: 77px;
+			background: url("./assets/spin_active.png");
+		}
+
+		&:disabled {
+			height: 100px;
+			background: url("./assets/spin.png");
+			transform: scale(0.8);
+			cursor: not-allowed;
+		}
+	}
+}
+
+
+
+//////////////////////////
+////////// Media Queries
+/////////////////////////
+
+@media screen and (max-width: 1200px) {
+	// Tablets
+
+	.container {
+		h1 {
+			font-size: 24px;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	// Mobile devices
+
+	h1 {
+		font-size: 20px;
+	}
+
+	.container {
+
+		.slots-cols {
+			// transform: scale(.8);
+			margin-top: -60px;
+			margin-bottom: 10px;
+		}
+
+		.info {
+			transform: scale(.8);
+		}
+	}
+
+	.spin {
+		transform: scale(.8);
+	}
+}
