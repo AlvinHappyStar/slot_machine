@@ -1,5 +1,5 @@
 ## Live preview
-https://gabrielcioci.github.io/slot-machine/
+https://slot-f812b.web.app/
 
 ## Available Scripts
 
