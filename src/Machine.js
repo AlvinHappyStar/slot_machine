@@ -82,7 +82,7 @@ class Machine extends Component {
 				this.setState((ws) => ({ score: ws.score + 50 }));
 				winAudio.play();
 			} else {
-				this.setState({ isWinner: 0 });
+				this.setState({ isWinner: false });
 				loseAudio.play();				
 			}
 
